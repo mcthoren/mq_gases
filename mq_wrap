@@ -1,0 +1,7 @@
+#!/bin/sh
+
+WT_DIR='/home/ghz/repos/weather_tools'
+DAT_DIR='/home/ghz/repos/mq_gases/data'
+
+"${WT_DIR}/grab_48h" "${DAT_DIR}" gas_levels
+gnuplot /home/ghz/repos/mq_gases/mqs.gnuplot
