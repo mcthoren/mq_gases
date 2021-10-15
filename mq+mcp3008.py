@@ -1,4 +1,4 @@
-#!//usr/bin/python3
+#!/usr/bin/python3
 
 # SPDX-FileCopyrightText: 2021 ladyada for Adafruit Industries
 # SPDX-License-Identifier: MIT
@@ -19,7 +19,6 @@ import wxlib as wx
 
 wx_dir = "/home/ghz/repos/mq_gases"
 dat_fname = "gas_levels"
-
 
 spi = busio.SPI(clock=board.SCK, MISO=board.MISO, MOSI=board.MOSI)
 cs = digitalio.DigitalInOut(board.D5)
