@@ -3,6 +3,13 @@
 # SPDX-FileCopyrightText: 2021 ladyada for Adafruit Industries
 # SPDX-License-Identifier: MIT
 
+# thanks to Adafruit for all the docs, boards and code.
+# docs and example code from here:
+# https://learn.adafruit.com/mcp3008-spi-adc?view=all
+
+# datasheet here:
+# https://cdn-shop.adafruit.com/datasheets/MCP3008.pdf
+
 import board, busio, digitalio, time, sys
 import adafruit_mcp3xxx.mcp3008 as MCP
 from adafruit_mcp3xxx.analog_in import AnalogIn
