@@ -31,14 +31,14 @@ for i in range(0,8):
 	gas_vals_sum[i] = 0
 itr = 0
 
-gas_vals[0] = AnalogIn(mcp, MCP.P0)	# MQ-136	Hydrogen Sulfide gas
-gas_vals[1] = AnalogIn(mcp, MCP.P1)	# MQ-2		Methane, Butane, LPG, smoke
+gas_vals[0] = AnalogIn(mcp, MCP.P0)	# MQ-136	Hydrogen Sulfide Gas
+gas_vals[1] = AnalogIn(mcp, MCP.P1)	# MQ-2		Methane, Butane, LPG, Smoke
 gas_vals[2] = AnalogIn(mcp, MCP.P2)	# MQ-8		Hydrogen Gas
-gas_vals[3] = AnalogIn(mcp, MCP.P3)	# MQ-135	Air Quality (Benzene, Alcohol, smoke)
+gas_vals[3] = AnalogIn(mcp, MCP.P3)	# MQ-135	Air Quality (Benzene, Alcohol, Smoke)
 gas_vals[4] = AnalogIn(mcp, MCP.P4)	# MQ-7		Carbon Monoxide
-gas_vals[5] = AnalogIn(mcp, MCP.P5)
-gas_vals[6] = AnalogIn(mcp, MCP.P6)
-gas_vals[7] = AnalogIn(mcp, MCP.P7)
+gas_vals[5] = AnalogIn(mcp, MCP.P5)	# MQ-3		Alcohol, Ethanol, Smoke
+gas_vals[6] = AnalogIn(mcp, MCP.P6)	# MQ-5		Natural Gas, LPG
+gas_vals[7] = AnalogIn(mcp, MCP.P7)	# MQ-4		Methane, CNG Gas
 
 while True:
 	# print("Raw ADC Value: ", chan.value)
