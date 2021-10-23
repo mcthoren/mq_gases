@@ -42,7 +42,7 @@ set output out_d.'mq-5.png'
 plot dat_f using 1:21 title 'MQ-5 - Natural Gas, LPG' with lines lw 2 linecolor rgb "#00a0a0"
 
 set output out_d.'mq-4.png'
-plot dat_f using 1:24 title 'MQ-4 - Methane, CNG Gas' with lines lw 2 linecolor rgb "#0000aa"
+plot dat_f using 1:24 title 'MQ-4 - Methane, CNG' with lines lw 2 linecolor rgb "#0000aa"
 
 set output out_d.'all_gasses.png'
 plot dat_f using 1:3 title 'MQ-136 - H_2S' with lines lw 2 linecolor rgb "#0000ff", \
@@ -52,4 +52,4 @@ dat_f using 1:12 title 'MQ-135 - Air Quality (Benzene, Alcohol, Smoke)' with lin
 dat_f using 1:15 title 'MQ-7 - CO' with lines lw 2 linecolor rgb "#ff00ff", \
 dat_f using 1:18 title 'MQ-3 - Alcohol, Ethanol, Smoke' with lines lw 2 linecolor rgb "#a000c0", \
 dat_f using 1:21 title 'MQ-5 - Natural Gas, LPG' with lines lw 2 linecolor rgb "#00a0a0", \
-dat_f using 1:24 title 'MQ-4 - Methane, CNG Gas' with lines lw 2 linecolor rgb "#0000aa"
+dat_f using 1:24 title 'MQ-4 - Methane, CNG' with lines lw 2 linecolor rgb "#0000aa"
