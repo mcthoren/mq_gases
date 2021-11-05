@@ -29,9 +29,11 @@ mcp1 = MCP.MCP3008(spi, cs1)
 gas_vals = {}
 gas_vals_sum = {}
 
-for i in range(0,10):
-	gas_vals_sum[i] = 0
 itr = 0
+num_sens = 16
+
+for i in range(num_sens):
+	gas_vals_sum[i] = 0
 
 gas_vals[0] = AnalogIn(mcp0, MCP.P0)	# MQ-136	Hydrogen Sulfide Gas
 gas_vals[1] = AnalogIn(mcp0, MCP.P1)	# MQ-2		Methane, Butane, LPG, Smoke
@@ -43,12 +45,18 @@ gas_vals[6] = AnalogIn(mcp0, MCP.P6)	# MQ-5		Natural Gas, LPG
 gas_vals[7] = AnalogIn(mcp0, MCP.P7)	# MQ-4		Methane, CNG Gas
 gas_vals[8] = AnalogIn(mcp1, MCP.P0)	# MQ-6		LPG, Butane
 gas_vals[9] = AnalogIn(mcp1, MCP.P1)	# MQ-9		"Methane, Propane, etc. Combustible Gas" (only running at 5VDC)
+gas_vals[10] = AnalogIn(mcp1, MCP.P1)
+gas_vals[11] = AnalogIn(mcp1, MCP.P1)
+gas_vals[12] = AnalogIn(mcp1, MCP.P1)
+gas_vals[13] = AnalogIn(mcp1, MCP.P1)
+gas_vals[14] = AnalogIn(mcp1, MCP.P1)
+gas_vals[15] = AnalogIn(mcp1, MCP.P1)
 
 while True:
 	# print("Raw ADC Value: ", chan.value)
 	ts = time.strftime("%FT%TZ", time.gmtime())
 	print(ts, end="")
-	for i in range(0,10):
+	for i in range(num_sens):
 		gas_vals_sum[i] += gas_vals[i].voltage
 		print("\t", end='')
 		print(str(i) + ": {0:0.4f} V".format(gas_vals[i].voltage), end="")
@@ -57,14 +65,14 @@ while True:
 
 	if itr >= 57:
 		dat_s = "{0:s}".format(ts)
-		for i in range(0,10):
+		for i in range(num_sens):
 			dat_s += "\t"
 			dat_s += str(i) + ": {0:0.4f} V".format(gas_vals_sum[i] / itr)
 
 		dat_s += "\n"
 
 		itr = 0
-		for i in range(0,10):
+		for i in range(num_sens):
 			gas_vals_sum[i] = 0
 
 		wx.write_out_dat_stamp_iso(ts, dat_fname, dat_s, wx_dir)
