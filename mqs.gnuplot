@@ -12,8 +12,8 @@ set grid xtics
 set grid y2tics
 set term pngcairo size 2000, 512 font ",10"
 
-set format y "%.3f"
-set format y2 "%.3f"
+set format y "%.4f"
+set format y2 "%.4f"
 
 dat_f='/home/ghz/repos/mq_gases/data/gas_levels.2-3_day'
 out_d='/home/ghz/repos/mq_gases/plots/'
