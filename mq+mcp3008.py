@@ -21,30 +21,34 @@ wx_dir = "/home/ghz/repos/mq_gases"
 dat_fname = "gas_levels"
 
 spi = busio.SPI(clock=board.SCK, MISO=board.MISO, MOSI=board.MOSI)
-cs = digitalio.DigitalInOut(board.D5)
-mcp = MCP.MCP3008(spi, cs)
+cs0 = digitalio.DigitalInOut(board.D5)
+cs1 = digitalio.DigitalInOut(board.D6)
+mcp0 = MCP.MCP3008(spi, cs0)
+mcp1 = MCP.MCP3008(spi, cs1)
 
 gas_vals = {}
 gas_vals_sum = {}
 
-for i in range(0,8):
+for i in range(0,10):
 	gas_vals_sum[i] = 0
 itr = 0
 
-gas_vals[0] = AnalogIn(mcp, MCP.P0)	# MQ-136	Hydrogen Sulfide Gas
-gas_vals[1] = AnalogIn(mcp, MCP.P1)	# MQ-2		Methane, Butane, LPG, Smoke
-gas_vals[2] = AnalogIn(mcp, MCP.P2)	# MQ-8		Hydrogen Gas
-gas_vals[3] = AnalogIn(mcp, MCP.P3)	# MQ-135	Air Quality (Benzene, Alcohol, Smoke)
-gas_vals[4] = AnalogIn(mcp, MCP.P4)	# MQ-7		Carbon Monoxide
-gas_vals[5] = AnalogIn(mcp, MCP.P5)	# MQ-3		Alcohol, Ethanol, Smoke
-gas_vals[6] = AnalogIn(mcp, MCP.P6)	# MQ-5		Natural Gas, LPG
-gas_vals[7] = AnalogIn(mcp, MCP.P7)	# MQ-4		Methane, CNG Gas
+gas_vals[0] = AnalogIn(mcp0, MCP.P0)	# MQ-136	Hydrogen Sulfide Gas
+gas_vals[1] = AnalogIn(mcp0, MCP.P1)	# MQ-2		Methane, Butane, LPG, Smoke
+gas_vals[2] = AnalogIn(mcp0, MCP.P2)	# MQ-8		Hydrogen Gas
+gas_vals[3] = AnalogIn(mcp0, MCP.P3)	# MQ-135	Air Quality (Benzene, Alcohol, Smoke)
+gas_vals[4] = AnalogIn(mcp0, MCP.P4)	# MQ-7		Carbon Monoxide
+gas_vals[5] = AnalogIn(mcp0, MCP.P5)	# MQ-3		Alcohol, Ethanol, Smoke
+gas_vals[6] = AnalogIn(mcp0, MCP.P6)	# MQ-5		Natural Gas, LPG
+gas_vals[7] = AnalogIn(mcp0, MCP.P7)	# MQ-4		Methane, CNG Gas
+gas_vals[8] = AnalogIn(mcp1, MCP.P0)	# MQ-6		LPG, Butane
+gas_vals[9] = AnalogIn(mcp1, MCP.P1)	# MQ-9		"Methane, Propane, etc. Combustible Gas" (only running at 5VDC)
 
 while True:
 	# print("Raw ADC Value: ", chan.value)
 	ts = time.strftime("%FT%TZ", time.gmtime())
 	print(ts, end="")
-	for i in range(0,8):
+	for i in range(0,10):
 		gas_vals_sum[i] += gas_vals[i].voltage
 		print("\t", end='')
 		print(str(i) + ": {0:0.4f} V".format(gas_vals[i].voltage), end="")
@@ -53,14 +57,14 @@ while True:
 
 	if itr >= 57:
 		dat_s = "{0:s}".format(ts)
-		for i in range(0,8):
+		for i in range(0,10):
 			dat_s += "\t"
 			dat_s += str(i) + ": {0:0.4f} V".format(gas_vals_sum[i] / itr)
 
 		dat_s += "\n"
 
 		itr = 0
-		for i in range(0,8):
+		for i in range(0,10):
 			gas_vals_sum[i] = 0
 
 		wx.write_out_dat_stamp_iso(ts, dat_fname, dat_s, wx_dir)
