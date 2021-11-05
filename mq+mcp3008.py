@@ -35,14 +35,14 @@ num_sens = 16
 for i in range(num_sens):
 	gas_vals_sum[i] = 0
 
-gas_vals[0] = AnalogIn(mcp0, MCP.P0)	# MQ-136	Hydrogen Sulfide Gas
+gas_vals[0] = AnalogIn(mcp0, MCP.P0)	# MQ-136	Hydrogen Sulfide
 gas_vals[1] = AnalogIn(mcp0, MCP.P1)	# MQ-2		Methane, Butane, LPG, Smoke
-gas_vals[2] = AnalogIn(mcp0, MCP.P2)	# MQ-8		Hydrogen Gas
+gas_vals[2] = AnalogIn(mcp0, MCP.P2)	# MQ-8		Hydrogen
 gas_vals[3] = AnalogIn(mcp0, MCP.P3)	# MQ-135	Air Quality (Benzene, Alcohol, Smoke)
 gas_vals[4] = AnalogIn(mcp0, MCP.P4)	# MQ-7		Carbon Monoxide
 gas_vals[5] = AnalogIn(mcp0, MCP.P5)	# MQ-3		Alcohol, Ethanol, Smoke
 gas_vals[6] = AnalogIn(mcp0, MCP.P6)	# MQ-5		Natural Gas, LPG
-gas_vals[7] = AnalogIn(mcp0, MCP.P7)	# MQ-4		Methane, CNG Gas
+gas_vals[7] = AnalogIn(mcp0, MCP.P7)	# MQ-4		Methane, CNG
 gas_vals[8] = AnalogIn(mcp1, MCP.P0)	# MQ-6		LPG, Butane
 gas_vals[9] = AnalogIn(mcp1, MCP.P1)	# MQ-9		"Methane, Propane, etc. Combustible Gas" (only running at 5VDC)
 gas_vals[10] = AnalogIn(mcp1, MCP.P1)
