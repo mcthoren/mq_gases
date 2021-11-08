@@ -15,5 +15,5 @@ to do:
 - [x] prototype hardware
 - [ ] build hardware
 - [x] hook up plotting
-- [ ] webpage
+- [x] webpage
 - [ ] calibrate
