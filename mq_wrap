@@ -5,4 +5,4 @@ DAT_DIR='/home/ghz/repos/mq_gases/data'
 
 "${WT_DIR}/grab_48h" "${DAT_DIR}" gas_levels
 /usr/bin/gnuplot /home/ghz/repos/mq_gases/mqs.gnuplot
-/usr/bin/rsync -ur --timeout=58 --exclude .git /home/ghz/repos/mq_gases/ wx0_sync:/wx0/mqs/
+/usr/bin/rsync -ur --timeout=58 --exclude .git /home/ghz/repos/mq_gases/ wx0_sync:/wx0/mqs/ 2> /dev/null
