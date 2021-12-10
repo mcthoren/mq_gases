@@ -50,6 +50,9 @@ plot dat_f using 1:27 title 'MQ-6 - LPG, Butane' with lines lw 2 linecolor rgb "
 set output out_d.'mq-9.png'
 plot dat_f using 1:30 title 'MQ-9 - CH_4, Propane, Combustibles' with lines lw 2 linecolor rgb "#00a000"
 
+set output out_d.'mq-137.png'
+plot dat_f using 1:33 title 'MQ-137 - Ammonia' with lines lw 2 linecolor rgb "#66cc00"
+
 set output out_d.'all_gasses.png'
 plot dat_f using 1:3 title 'MQ-136 - H_2S' with lines lw 2 linecolor rgb "#0000ff", \
 dat_f using 1:6 title 'MQ-2 - CH_4, Butane, LPG, Smoke' with lines lw 2 linecolor rgb "#00ff00", \
@@ -60,4 +63,5 @@ dat_f using 1:18 title 'MQ-3 - Alcohol, Ethanol, Smoke' with lines lw 2 linecolo
 dat_f using 1:21 title 'MQ-5 - Natural Gas, LPG' with lines lw 2 linecolor rgb "#00a0a0", \
 dat_f using 1:24 title 'MQ-4 - CH_4, CNG' with lines lw 2 linecolor rgb "#0000aa", \
 dat_f using 1:27 title 'MQ-6 - LPG, Butane' with lines lw 2 linecolor rgb "#6600ff", \
-dat_f using 1:30 title 'MQ-9 - CH_4, Propane, Combustibles' with lines lw 2 linecolor rgb "#00a000"
+dat_f using 1:30 title 'MQ-9 - CH_4, Propane, Combustibles' with lines lw 2 linecolor rgb "#00a000", \
+dat_f using 1:33 title 'MQ-137 - Ammonia' with lines lw 2 linecolor rgb "#66cc00"
