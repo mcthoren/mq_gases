@@ -12,6 +12,8 @@ set grid xtics
 set grid y2tics
 set term pngcairo size 2000, 512 font ",10"
 
+set link y2
+
 set format y "%.4f"
 set format y2 "%.4f"
 
