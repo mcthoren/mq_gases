@@ -9,6 +9,10 @@ To install the prerequisites one needs sth like the following:
   * https://learn.adafruit.com/mcp3008-spi-adc?view=all
   * https://cdn-shop.adafruit.com/datasheets/MCP3008.pdf
 
+Example output looks sth like:
+![This for all Gasses](https://darkdata.org/ghz/images/docs/all_gasses.png)
+![And like this for individual gasses](https://darkdata.org/ghz/images/docs/mq-137.png)
+
 to do:
 - [x] lic
 - [x] readme
