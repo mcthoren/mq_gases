@@ -69,7 +69,7 @@ while True:
 			dat_s += "\t"
 			dat_s += str(i) + ": {0:0.4f} V".format(gas_vals_sum[i] / itr)
 
-		dat_s += "\n"
+		dat_s += "\tpi_temp: {0:0.2f} °C\n".format(float(wx.pi_temp_read()) / 1000)
 
 		itr = 0
 		for i in range(num_sens):
